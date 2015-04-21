@@ -1,0 +1,48 @@
+<html>
+	<head></head>
+	<body>
+		<form>
+			<input type="checkbox" name="checkall" data-bind="checked: checkall" />
+			
+			<ul>
+				<!-- ko foreach: items -->
+				<li><input type="checkbox" name="selectedItems" data-bind="checked: $parent.selectedItems, attr: { value: value }" /></li>
+				<!-- /ko -->
+			</ul>
+		</form>
+	
+		<script src="knockout.js"></script>
+		<script>
+			function ViewModel() {
+				var self = this;
+				
+				self.items = [
+					{ id: 1, value: 1 },
+					{ id: 2, value: 2 },
+					{ id: 3, value: 3 },
+					{ id: 4, value: 4 },
+					{ id: 5, value: 5 }
+				];
+				
+				self.selectedItems = ko.observableArray();
+				
+				self.checkall = ko.computed({
+					read: function() {
+						return self.items.length == self.selectedItems().length;
+					},
+					write: function(newValue) {
+						self.selectedItems([]);
+					
+						if (newValue) {
+							for (var i = 0; i < self.items.length; i++)
+								self.selectedItems.push(self.items[i].value.toString());
+						}
+					}
+				});
+			};
+			
+			var viewModel = new ViewModel();
+			ko.applyBindings(viewModel);
+		</script>
+	</body>
+</html>
