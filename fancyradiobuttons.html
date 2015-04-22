@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="btn-group">
+		  <button type="button" class="btn btn-default" data-bind="radioButtonGroup: selectedOption, radioValue: 'option1'">Option 1</button>
+		  <button type="button" class="btn btn-default" data-bind="radioButtonGroup: selectedOption, radioValue: 'option2'">Option 2</button>
+		  <button type="button" class="btn btn-default" data-bind="radioButtonGroup: selectedOption, radioValue: 'option3'">Option 3</button>
+		</div>
+
+		<script src="knockout.js"></script>
+		<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script>
+			ko.bindingHandlers.radioButtonGroup = {
+				init: function (element, valueAccessor, allBindings, viewModel, context) {
+					var $buttons, $element, observable;
+					observable = valueAccessor();
+					if (!ko.isWriteableObservable(observable)) {
+						throw "You must pass an observable or writeable computed";
+					}
+					$element = $(element);
+					if ($element.hasClass("btn")) {
+						$buttons = $element;
+					} else {
+						$buttons = $(".btn", $element);
+					}
+					elementBindings = allBindings();
+					$buttons.each(function () {
+						var $btn, btn, radioValue;
+						btn = this;
+						$btn = $(btn);
+						radioValue = elementBindings.radioValue || $btn.attr("data-value") || $btn.attr("value") || $btn.text();
+						$btn.on("click", function () {
+							observable(ko.utils.unwrapObservable(radioValue));
+						});
+						return ko.computed({
+							disposeWhenNodeIsRemoved: btn,
+							read: function () {
+								$btn.toggleClass("active", observable() === ko.utils.unwrapObservable(radioValue));
+								$btn.toggleClass("btn-info", observable() === ko.utils.unwrapObservable(radioValue));
+							}
+						});
+					});
+				}
+			};
+		</script>
+		<script>
+			function ViewModel() {
+				var self = this;
+				
+				self.selectedOption = ko.observable();
+			};
+			
+			var viewModel = new ViewModel();
+			ko.applyBindings(viewModel);
+		</script>
+	</body>
+</html>
