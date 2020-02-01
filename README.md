@@ -1,8 +1,7 @@
-# Knockout.js - Examples
+# Knockout.js - Tutorials
 
-The following examples are finished code for blog posts from my blog http://www.endyourif.com.  Visit my blog for explanations around each example.
+The following examples are finished code for the [Knockout js tutorials](https://www.endyourif.com/tutorial/knockoutjs) that are located on my blog: End Your If. Below is a list of the articles that are covered in these examples.
 
-They cover the following topics:  
 [(Un)Check All using #KnockoutJS](https://www.endyourif.com/uncheck-all-using-knockoutjs/)  
-[Convert the (un)check all to a #KnockoutJS Component](https://www.endyourif.com/convert-the-uncheck-all-to-a-knockoutjs-component/)  
-[Replacing Radio Buttons with a Button Group using Bootstrap and #KnockoutJS](https://www.endyourif.com/replacing-radio-buttons-with-a-button-group-using-bootstrap-and-knockoutjs/)
+[Creating a Knockout js component](https://www.endyourif.com/convert-the-uncheck-all-to-a-knockoutjs-component/)  
+[Creating a custom Knockout js data binding](https://www.endyourif.com/replacing-radio-buttons-with-a-button-group-using-bootstrap-and-knockoutjs/)
