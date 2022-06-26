@@ -6,4 +6,4 @@ The following examples are finished code for the [Knockout.js tutorials](https:/
 [Creating a Knockout js component](https://www.endyourif.com/convert-the-uncheck-all-to-a-knockoutjs-component/)  
 [Creating a custom Knockout js data binding](https://www.endyourif.com/replacing-radio-buttons-with-a-button-group-using-bootstrap-and-knockoutjs/)
 
-If you're looking for information about [JavaScript arrays](https://www.endyourif.com/tutorial/javascriptarray)> I've compiled an entire page dedicated with over 10 different examples that will considerably improve your skills with Javascript arrays.
+If you're looking for information about [JavaScript arrays](https://www.endyourif.com/tutorial/javascriptarray) I've compiled an entire page dedicated with over 10 different examples that will considerably improve your skills with Javascript arrays.
